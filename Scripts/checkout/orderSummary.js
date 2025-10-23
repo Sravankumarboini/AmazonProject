@@ -3,8 +3,7 @@ import {products,getProduct} from '../../data/products.js';
 import { formatCurrency } from '../utils/money.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import {deliveryOptions,getDeliveryOption} from '../../data/deliveryOptions.js';
-
-const today=dayjs();
+import { renderPaymentSummary } from './paymentSummery.js';
 
 export function renderOrderSummery(){
 
@@ -117,6 +116,7 @@ export function renderOrderSummery(){
       const {productId,deliveryOptionId}=element.dataset;
         updateDeliveryOption(productId,deliveryOptionId);
         renderOrderSummery();
+        renderPaymentSummary();
     });
   });
 }
